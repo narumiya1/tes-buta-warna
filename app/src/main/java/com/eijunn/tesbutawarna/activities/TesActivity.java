@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,7 +49,7 @@ public class TesActivity extends AppCompatActivity {
     ImageButton buttonJawab;
 
     @BindView(R.id.lay_jawaban)
-    TextView layJawaban;
+    LinearLayout layJawaban;
 
     List<Tes> tesList = new ArrayList<>();
 
@@ -146,7 +147,9 @@ public class TesActivity extends AppCompatActivity {
     private void openHasil() {
         Intent intent = new Intent(this, HasilActivity.class);
         intent.putExtra("benar", jawabanBenar);
-        intent.putExtra("salah", jawabanSalah);
+        intent.putExtra("jumlah", jumlahTest);
+        startActivity(intent);
+        finish();
 
     }
 
@@ -176,11 +179,11 @@ public class TesActivity extends AppCompatActivity {
         if (etJawaban.getText().toString().equals(tesList.get(pos).getJawaban())) {
             tesList.get(pos).setBetul(true);
             tvJawaban.setText("betul");
-            Log.d(TAG, "betul") ;
+            Log.d(TAG, "jawab : betul") ;
         }else {
             tesList.get(pos).setBetul(false);
             tvJawaban.setText("salah");
-            Log.d(TAG, "salah") ;
+            Log.d(TAG, "jawab : salah") ;
         }
 
         //

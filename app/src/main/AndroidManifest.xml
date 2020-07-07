@@ -21,7 +21,7 @@
         <activity android:name=".activities.AboutActivity"></activity>
         <activity android:name=".activities.PanduanActivity"></activity>
         <activity android:name=".activities.TesActivity"></activity>
-
+        <activity android:name=".activities.HasilActivity"></activity>
     </application>
 
 </manifest>
