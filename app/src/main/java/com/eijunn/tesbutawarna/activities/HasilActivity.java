@@ -21,7 +21,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class HasilActivity extends AppCompatActivity {
 
     private static final String TAG = "HasilActivity" ;
-
+    int jawabanBenar, jawabanSalah, jumlahTest = 0;
     @BindView(R.id.img_tes)
     ImageView imageTes ;
     @BindView(R.id.tv_hasil)
@@ -35,7 +35,6 @@ public class HasilActivity extends AppCompatActivity {
     @BindView(R.id.btn_home)
     TextView btnHome ;
 
-    int jawabannBenar, jawabanSalah, jumlahTest=0 ;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,19 +42,21 @@ public class HasilActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hasil);
         ButterKnife.bind(this);
 
-        jawabannBenar = getIntent().getIntExtra("benar", 0);
+        jawabanBenar = getIntent().getIntExtra("benar", 0);
         jumlahTest = getIntent().getIntExtra("jumlah", 0);
 
-        if (jawabannBenar > 0) {
+        if (jawabanBenar > 8) {
             Glide.with(this).load(R.drawable.happy).into(imageTes);
             tvHasil.setText("NORMAL");
-        }else if ( jawabannBenar > 1 && jawabannBenar <8) {
+        }else if ( jawabanBenar > 1 && jawabanBenar <8) {
             Glide.with(this).load(R.drawable.smiling).into(imageTes);
             tvHasil.setText("buta warna parsial");
         }else {
             Glide.with(this).load(R.drawable.unhappy).into(imageTes);
             tvHasil.setText("buta warna total");
         }
+
+        tvHasilHitung.setText("Anda Betul " + jawabanBenar + " dari " + jumlahTest + " Pertanyaan");
 
 
     }
