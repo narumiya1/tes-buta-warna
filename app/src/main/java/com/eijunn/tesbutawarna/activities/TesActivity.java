@@ -54,7 +54,7 @@ public class TesActivity extends AppCompatActivity {
     List<Tes> tesList = new ArrayList<>();
 
     String[] jawaban = new String[]{"2", "3", "5", "6", "7", "8", "12", "15", "16", "57", "73", "74", "96", "97", "45"};
-    ;
+
     int[] gambar = new int[]{
             R.drawable.ishihara_2,
             R.drawable.ishihara_3,
@@ -78,6 +78,7 @@ public class TesActivity extends AppCompatActivity {
     int pos = 0;
 
     int jawabanBenar, jawabanSalah, jumlahTest = 0;
+
     @BindView(R.id.tv_jumlah_pertanyaan)
     TextView tvJumlahPertanyaan;
 
@@ -92,7 +93,7 @@ public class TesActivity extends AppCompatActivity {
         generateSoal();
 
         Glide.with(this).load(gambar[pos]).into(imageTes);
-        tvJumlahPertanyaan.setText(String.valueOf(pos + 1) + "/" + tesList.size());
+        tvJumlahPertanyaan.setText(String.valueOf(pos + 1) + "dari" + tesList.size());
     }
 
     private void initViews() {
@@ -119,11 +120,13 @@ public class TesActivity extends AppCompatActivity {
             case R.id.btn_next:
 
                 if (pos != tesList.size()) {
+
                     if (next) {
                         hideJawaban();
                     } else {
                         Toast.makeText(this, "Harap Jawab Pertanyaan Terlebih Dahulu ! ", Toast.LENGTH_SHORT).show();
                     }
+
                 } else {
                     for (int i = 0 ; i<tesList.size(); i++) {
                         Log.d(TAG,"Jawaban betul = " + tesList.get(i).isBetul());

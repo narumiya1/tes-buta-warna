@@ -22,6 +22,8 @@ public class HasilActivity extends AppCompatActivity {
 
     private static final String TAG = "HasilActivity" ;
     int jawabanBenar, jawabanSalah, jumlahTest = 0;
+
+    
     @BindView(R.id.img_tes)
     ImageView imageTes ;
     @BindView(R.id.tv_hasil)

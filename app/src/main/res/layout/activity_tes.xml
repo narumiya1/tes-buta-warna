@@ -8,7 +8,6 @@
     android:orientation="vertical"
     android:padding="@dimen/spacing_large">
 
-
     <LinearLayout
         android:id="@+id/lay"
         android:layout_width="match_parent"
@@ -74,7 +73,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jawaban yang benar adalah"
+            android:text="Jawaban yang benar : "
             android:textStyle="bold" />
 
         <TextView
